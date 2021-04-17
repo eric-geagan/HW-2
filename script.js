@@ -8,13 +8,8 @@ function getUserInputs() {
     userInputs.push(text)
   }
 
-  userInputs.forEach((item, i) => {
-    let list = document.createElement('li')
-    let node = document.createTextNode(item)
-    list.appendChild(node)
-    document.getElementById('list1').appendChild(list)
-  })
-
+  createList(userInputs, 'list1')
+  
   let newButton = document.createElement('button')
   newButton.innerHTML = 'Change the words!'
   newButton.onclick = function() {
@@ -33,12 +28,16 @@ function scrambleWords(items) {
     return item.charAt(item.length - 1) + item.substring(1, item.length - 1) + item.charAt(0)
   })
 
-  newArray.forEach((text, i) => {
-    let list = document.createElement('li')
-    let node = document.createTextNode(text)
-    list.appendChild(node)
-    document.getElementById('list2').appendChild(list)
-  })
+  createList(newArray, 'list2')
 
   document.getElementById('changer').remove()
+}
+
+function createList(listItems, listId) {
+  listItems.forEach(item => {
+    let list = document.createElement('li')
+    let node = document.createTextNode(item)
+    list.appendChild(node)
+    document.getElementById(listId).appendChild(list)
+  })
 }
