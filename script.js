@@ -1,6 +1,7 @@
 const loops = 3
 let userInputs = []
 screen2.style.display = 'none'
+// Homework 2
 
 function getUserInputs() {
   for(let i = 0; i < loops; i++) {
